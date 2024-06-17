@@ -47,7 +47,7 @@ public class PracticeFormTest {
         $("#hobbiesWrapper").$(byText("Sports")).click();
 
         File file = new File("src/test/resources/Hello.docx");
-       $("#uploadPicture").uploadFile(file);
+        $("#uploadPicture").uploadFile(file);
 
         $("#currentAddress").setValue("Minsk");
 
@@ -58,9 +58,9 @@ public class PracticeFormTest {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Agra")).click();
 
-       $("#submit").click();
+        $("#submit").click();
 
-       $("#example-modal-sizes-title-lg ").shouldHave(exactText("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg ").shouldHave(exactText("Thanks for submitting the form"));
 
         $(".table-responsive").shouldHave(
                 Condition.text("Student Name Ivan Semenov"),
