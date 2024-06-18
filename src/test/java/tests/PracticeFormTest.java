@@ -10,8 +10,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
 
@@ -20,13 +19,14 @@ public class PracticeFormTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.timeout = 5000;
     }
 
     @Test
     void fillFormTest() {
 
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Semenov");
         $("#userEmail").setValue("qa@quru.com");
@@ -40,18 +40,16 @@ public class PracticeFormTest {
         $(".react-datepicker__month-select").selectOption("February");
         $(".react-datepicker__day--002:not(.react-datepicker__day--outside-month)").click();
 
-        $("#subjects-label").scrollTo();
         $("#subjectsInput").setValue("Maths").pressEnter();
 
         $("#subjects-label").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
 
-        File file = new File("src/test/resources/Hello.docx");
-        $("#uploadPicture").uploadFile(file);
+//        File file = new File("src/test/resources/Hello.docx");
+//        $("#uploadPicture").uploadFile(file);
 
+        $("#uploadPicture").uploadFromClasspath("picture.jpg");
         $("#currentAddress").setValue("Minsk");
-
-        $("#submit").scrollTo();
 
         $("#state").click();
         $("#stateCity-wrapper").$(byText("Uttar Pradesh")).click();
@@ -70,7 +68,7 @@ public class PracticeFormTest {
                 Condition.text("Date of Birth 02 February,1999"),
                 Condition.text("Subjects Maths"),
                 Condition.text("Hobbies Sports"),
-                Condition.text("Picture Hello.docx"),
+                Condition.text("Picture picture.jpg"),
                 Condition.text("Address Minsk"),
                 Condition.text("State and City Uttar Pradesh Agra")
         );
