@@ -45,9 +45,6 @@ public class PracticeFormTest {
         $("#subjects-label").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
 
-//        File file = new File("src/test/resources/Hello.docx");
-//        $("#uploadPicture").uploadFile(file);
-
         $("#uploadPicture").uploadFromClasspath("picture.jpg");
         $("#currentAddress").setValue("Minsk");
 
