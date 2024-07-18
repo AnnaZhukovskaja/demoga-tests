@@ -22,18 +22,18 @@ public class SoftAssertionsTest {
         $("[name='query-builder-test']").setValue("selenide").pressEnter();
         $("[href='/selenide/selenide']").click();
         $("#wiki-tab").click();
-        $("a[href='/selenide/selenide/wiki/SoftAssertions']").shouldHave(text("Soft assertions"));
-
-    }
-    @Test
-    void softAssertionsShouldHaveCodeForJUnit5() {
-        open("https://github.com/");
-        $("[data-target='qbsearch-input.inputButtonText']").click();
-        $("[name='query-builder-test']").setValue("selenide").pressEnter();
-        $("[href='/selenide/selenide']").click();
-        $("#wiki-tab").click();
-        $("a[href='/selenide/selenide/wiki/SoftAssertions']").click();
-        $$("h4.heading-element").get(2).shouldHave(text("3. Using JUnit5 extend test class:"));
-
+        $(".js-wiki-more-pages-link").click();
+        $$("[data-filterable-for='wiki-pages-filter'] li").get(20).$("a").shouldHave(text("SoftAssertions")).click();
+        $("#wiki-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
+               "class Tests {\n" +
+               "  @Test\n" +
+               "  void test() {\n" +
+               "    Configuration.assertionMode = SOFT;\n" +
+               "    open(\"page.html\");\n" +
+               "\n" +
+               "    $(\"#first\").should(visible).click();\n" +
+               "    $(\"#second\").should(visible).click();\n" +
+               "  }\n" +
+               "}"));
     }
 }
