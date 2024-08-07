@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -54,7 +55,7 @@ public class PracticeFormTest {
         $("#stateCity-wrapper").$(byText("Agra")).click();
 
         $("#submit").click();
-
+        $(".modal-dialog").shouldBe(appear);
         $("#example-modal-sizes-title-lg ").shouldHave(exactText("Thanks for submitting the form"));
 
         $(".table-responsive").shouldHave(
