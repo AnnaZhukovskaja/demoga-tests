@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-    public class CssXpathExamples {
+    public class CssXpathExamplesTest {
 
         void cssXpath() {
             // <input type="email" class="inputtext login_form_input_box" name="email" id="email" data-testid="email">
