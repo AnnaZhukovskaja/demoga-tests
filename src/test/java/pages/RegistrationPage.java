@@ -32,9 +32,13 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+        deleteBanners();
+        return this;
+    }
+
+    public void deleteBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        return this;
     }
 
     public RegistrationPage setFirstName(String firstName) {
@@ -58,7 +62,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setUserNumber(String value) {
-        userNumberInput.setValue("3752955556");
+        userNumberInput.setValue(value);
         return this;
     }
 
