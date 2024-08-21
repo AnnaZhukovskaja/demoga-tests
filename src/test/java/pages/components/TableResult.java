@@ -12,4 +12,10 @@ public class TableResult {
                 .shouldHave(text(value));
 
     }
+
+    public void checkOutputResult(String selenideElement, String value) {
+
+        $(selenideElement).shouldHave(text(value));
+
+    }
 }

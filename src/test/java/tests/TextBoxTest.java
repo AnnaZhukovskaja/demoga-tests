@@ -1,36 +1,19 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.TextBoxPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
-public class TextBoxTest {
-
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
-    }
+public class TextBoxTest extends BaseTest {
+    TextBoxPage textBoxPage = new TextBoxPage();
     @Test
-    void fillFormTest() {
+    void successfulFillingFormTest() {
 
-        open("/text-box");
-        $("#userName").setValue("Anna");
-        $("#userEmail").setValue("qa@quru.com");
-        $("#currentAddress").setValue("Minsk");
-        $("#permanentAddress").setValue("Minsk");
-        $("#submit").click();
-
-        $("#output #name").shouldHave(text("Anna"));
-        $("#output #email").shouldHave(text("qa@quru.com"));
-        $("#output #currentAddress").shouldHave(text("Minsk"));
-        $("#output #permanentAddress").shouldHave(text("Minsk"));
-}
+        textBoxPage.openPage().
+                setUserName("Anna").
+                setUserEmail("qa@quru.com").
+                setCurrentAddress("Minsk").
+                setPermanentAddress("Grodno").
+                clickSubmit();
+        textBoxPage.checkDataInOutput("Anna","qa@quru.com"," "," ");
+    }
 }
