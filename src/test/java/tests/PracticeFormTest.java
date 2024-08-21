@@ -43,7 +43,7 @@ public class PracticeFormTest {
         $("#subjects-label").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
 
-        $("#uploadPicture").uploadFromClasspath("picture.jpg");
+        $("#uploadPicture").uploadFromClasspath("picture1.jpg");
         $("#currentAddress").setValue("Minsk");
 
         $("#state").click();

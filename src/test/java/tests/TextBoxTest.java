@@ -14,6 +14,6 @@ public class TextBoxTest extends BaseTest {
                 setCurrentAddress("Minsk").
                 setPermanentAddress("Grodno").
                 clickSubmit();
-        textBoxPage.checkDataInOutput("Anna","qa@quru.com"," "," ");
+        textBoxPage.checkDataInOutput("Anna","qa@quru.com"," "," ");//check address
     }
 }

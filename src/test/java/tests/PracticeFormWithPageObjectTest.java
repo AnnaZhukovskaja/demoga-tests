@@ -3,40 +3,57 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static utils.TestData.*;
+
 public class PracticeFormWithPageObjectTest extends BaseTest{
 
     RegistrationPage registrationPage = new RegistrationPage();
+    String firstName = getFirstName();
+    String lastName = getLastName();
+    String emailAddress = getEmailAddress();
+    String currentAddress = getCurrentAddress();
+    String gender = getGender();
+    String mobileNumber = getMobileNumber();
+    String subjects = getSubjects();
+    String hobbies = getHobbies();
+    String state = getState();
+    String city = getCity(state);
+    String image = getImage();
+    String dayOfBirth = getDayOfBirth();
+    String monthOfBirth = getMonthOfBirth();
+    String yearOfBirth = getYearOfBirth();
+    String currentDay = getCurrentDay();
 
     @Test
     void successfulRegistrationTest() {
 
         registrationPage.
                 openPage().
-                setFirstName("Ivan").
-                setLastName("Ivanov").
-                setUserEmail("qa@quru.com").
-                setGenderWrapper("Male").
-                setUserNumber("3752955556").
-                setDateOfBirth("July","2000","25").
-                setSubjects("Maths").
-                setHobbiesWrapper("Sports").
-                setUploadPicture("picture.jpg").
-                setCurrentAddress("Minsk").
-                setState("Uttar Pradesh").
-                setCity("Agra").
+                setFirstName(firstName).
+                setLastName(lastName).
+                setUserEmail(emailAddress).
+                setGenderWrapper(gender).
+                setUserNumber(mobileNumber).
+                setDateOfBirth(monthOfBirth,yearOfBirth,dayOfBirth).
+                setSubjects(subjects).
+                setHobbiesWrapper(hobbies).
+                setUploadPicture(image).
+                setCurrentAddress(currentAddress).
+                setState(state).
+                setCity(city).
                 clickSubmit();
 
         registrationPage.checkTitleInModalForm("Thanks for submitting the form");
-        registrationPage.checkDataInTable("Student Name","Ivan Ivanov").
-                checkDataInTable("Student Email","qa@quru.com").
-                checkDataInTable("Gender","Male").
-                checkDataInTable("Mobile","3752955556").
-                checkDataInTable("Date of Birth","25 July,2000").
-                checkDataInTable("Subjects","Maths").
-                checkDataInTable("Hobbies","Sports").
-                checkDataInTable("Picture","picture.jpg").
-                checkDataInTable("Address", "Minsk").
-                checkDataInTable("State and City","Uttar"+" Pradesh Agra");
+        registrationPage.checkDataInTable("Student Name",firstName + " " + lastName).
+                checkDataInTable("Student Email",emailAddress).
+                checkDataInTable("Gender",gender).
+                checkDataInTable("Mobile",mobileNumber).
+                checkDataInTable("Date of Birth",dayOfBirth + " " + monthOfBirth + "," + yearOfBirth).
+                checkDataInTable("Subjects",subjects).
+                checkDataInTable("Hobbies",hobbies).
+                checkDataInTable("Picture",image).
+                checkDataInTable("Address", currentAddress).
+                checkDataInTable("State and City",state +" " + city);
     }
 
     @Test
@@ -44,18 +61,18 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
 
         registrationPage.
                 openPage().
-                setFirstName("Ivan").
-                setLastName("Ivanov").
-                setGenderWrapper("Male").
-                setUserNumber("3752955556").
+                setFirstName(firstName).
+                setLastName(lastName).
+                setGenderWrapper(gender).
+                setUserNumber(mobileNumber).
                 clickSubmit();
 
         registrationPage.checkTitleInModalForm("Thanks for submitting the form");
-        registrationPage.checkDataInTable("Student Name","Ivan Ivanov").
+        registrationPage.checkDataInTable("Student Name",firstName + " " + lastName).
                 checkDataInTable("Student Email"," ").
-                checkDataInTable("Gender","Male").
-                checkDataInTable("Mobile","3752955556").
-                checkDataInTable("Date of Birth","14 August,2024").
+                checkDataInTable("Gender",gender).
+                checkDataInTable("Mobile",mobileNumber).
+                checkDataInTable("Date of Birth",currentDay).
                 checkDataInTable("Subjects"," ").
                 checkDataInTable("Hobbies"," ").
                 checkDataInTable("Picture"," ").
@@ -67,7 +84,7 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
 
         registrationPage.
                 openPage().
-                setFirstName("Ivan").
+                setFirstName(firstName).
                 clickSubmit();
 
         registrationPage.checkAppearanceOfModalForm();
