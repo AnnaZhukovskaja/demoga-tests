@@ -8,73 +8,86 @@ import java.util.Locale;
 
 public class TestData {
 
-    static Faker faker = new Faker();
+    Faker faker = new Faker();
+    public String firstName = getFirstName(),
+            lastName = getLastName(),
+            emailAddress = getEmailAddress(),
+            currentAddress = getCurrentAddress(),
+            gender = getGender(),
+            mobileNumber = getMobileNumber(),
+            subjects = getSubjects(),
+            hobbies = getHobbies(),
+            state = getState(),
+            city = getCity(state),
+            image = getImage(),
+            dayOfBirth = getDayOfBirth(),
+            monthOfBirth = getMonthOfBirth(),
+            yearOfBirth = getYearOfBirth(),
+            currentDay = getCurrentDay();
 
-    public static String getFirstName() {
+    public String getFirstName() {
         return faker.name().firstName();
     }
 
-    public static String getLastName() {
+    public String getLastName() {
         return faker.name().lastName();
     }
 
-    public static String getEmailAddress() {
+    public String getEmailAddress() {
         return faker.internet().emailAddress();
     }
 
-    public static String getGender() {
+    public String getGender() {
         String[] array = {"Male", "Female", "Other"};
         return array[faker.number().numberBetween(0, array.length - 1)];
     }
 
-    public static String getMobileNumber() {
+    public String getMobileNumber() {
         return faker.number().digits(10);
     }
 
-    public static String getDayOfBirth() {
-        String day = String.valueOf(faker.number().numberBetween(0,28));
-       return day;
+    public String getDayOfBirth() {
+       return String.valueOf(faker.number().numberBetween(0,28));
     }
-    public static String getMonthOfBirth() {
+    public String getMonthOfBirth() {
         String []month = {"January","February","March","April","May","June","July","August","September","October","November","December"};
         return month[faker.number().numberBetween(0, month.length - 1)];
     }
-    public static String getYearOfBirth() {
-        String year = String.valueOf(faker.number().numberBetween(1900,2023));
-        return year;
+    public String getYearOfBirth() {
+        return String.valueOf(faker.number().numberBetween(1900,2023));
     }
 
-    public static String getCurrentDay() {
+    public String getCurrentDay() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM,yyyy", Locale.ENGLISH);
         Date currentDate = new Date();
         return formatter.format(currentDate);
     }
 
-    public static String getSubjects() {
+    public String getSubjects() {
         String[] array = {"Maths", "Biology", "Computer Science", "Commerce", "Accounting", "Economics"
                 , "Social Studies", "History", "Physics"};
         return array[faker.number().numberBetween(0, array.length - 1)];
     }
 
-    public static String getHobbies() {
+    public String getHobbies() {
         String[] array = {"Sports", "Reading", "Music"};
         return array[faker.number().numberBetween(0, array.length - 1)];
     }
-    public static String getImage() {
+    public String getImage() {
         String[] array = {"picture.jpg", "picture2.jpg", "picture3.jpg", };
         return array[faker.number().numberBetween(0, array.length - 1)];
     }
 
-    public static String getCurrentAddress() {
+    public String getCurrentAddress() {
         return faker.address().streetAddress();
     }
 
-    public static String getState() {
+    public String getState() {
         String[] array = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         return array[faker.number().numberBetween(0, array.length - 1)];
     }
 
-    public static String getCity(String state) {
+    public String getCity(String state) {
         String city = "";
         String[] arrayNCR = {"Delhi", "Gurgaon", "Noida"};
         String[] arrayUttarPradesh = {"Agra", "Lucknow", "Merrut"};

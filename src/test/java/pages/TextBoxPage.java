@@ -3,8 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.TableResult;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
