@@ -13,9 +13,8 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
-
-    @Tag("demoqa HW")
     @Test
+    @Tag("demoqaHW")
     void successfulRegistrationTest() {
         step("Open form and full", () -> {
                     registrationPage.
@@ -49,8 +48,8 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
         });
     }
 
-    @Tag("demoqa HW")
     @Test
+    @Tag("demoqaHW")
     void successfulRegistrationWithMinimumDataTest() {
 
         step("Open form and full", () -> {
@@ -77,8 +76,8 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
                     checkDataInTable("State and City", " ");
         });
     }
-    @Tag("demoqa HW")
     @Test
+    @Tag("demoqaHW")
     void negativeRegistrationTest() {
 
         step("Open form and full", () -> {
