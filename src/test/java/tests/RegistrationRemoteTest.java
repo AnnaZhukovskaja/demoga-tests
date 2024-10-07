@@ -1,5 +1,4 @@
 package tests;
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -44,6 +43,7 @@ public class RegistrationRemoteTest {
         Attach.browserConsoleLogs();
         Attach.addVideo();
     }
+
     @Test
     @Tag("demoqa")
     void successfullyRegistrationTest() {

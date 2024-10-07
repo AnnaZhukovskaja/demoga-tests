@@ -51,7 +51,6 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
     @Test
     @Tag("demoqaHW")
     void successfulRegistrationWithMinimumDataTest() {
-
         step("Open form and full", () -> {
                     registrationPage.
                             openPage().
@@ -79,7 +78,6 @@ public class PracticeFormWithPageObjectTest extends BaseTest{
     @Test
     @Tag("demoqaHW")
     void negativeRegistrationTest() {
-
         step("Open form and full", () -> {
                     registrationPage.
                             openPage().
