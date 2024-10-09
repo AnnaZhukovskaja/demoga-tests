@@ -31,7 +31,8 @@ dependencies {
 }
 
 tasks.withType(Test) {
-    systemProperties(System.getProperty()) //для передачи параметра извне
+    useJUnitPlatform()
+    systemProperties(System.getProperties()) //для передачи параметра извне
 
     testLogging {
         lifecycle {
@@ -39,10 +40,6 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
-
-test {
-    useJUnitPlatform()
 }
 
 task simple_test(type: Test) {

@@ -16,6 +16,7 @@ public class SystemPropertiesTests {
     void systemProperties1Test() {
         String browser = System.getProperty("browser","mozilla");
         System.out.println(browser);
-        //gradle property_test Dbrowser=opera   -запуск через консоль и установить browser=opera
+        //gradle property_test Dbrowser=opera   -запуск через консоль и передать browser=opera
+        //вывод будет: opera
     }
 }

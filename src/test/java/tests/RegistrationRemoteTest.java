@@ -21,6 +21,7 @@ import static io.qameta.allure.Allure.step;
 
 public class RegistrationRemoteTest {
 
+    //https://jenkins.autotests.cloud/job/Demoga%20HW/
     @BeforeAll
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
