@@ -33,10 +33,10 @@ public class SystemPropertiesTests {
         System.out.println(message);
 
         //gradle hello_test "-Dname=Olga Smirnova"   - команда для запуска через консоль и передачи в  browser=opera
-        //clean ${TASK} "-Dname=${OLGA Smirnova}"      - in jenkins
-        //вывод будет: opera
+        //clean ${TASK} "-Dname=OLGA Smirnova"      - in jenkins
+        //вывод будет: Hello,OLGA Smirnova!
 
-        //gradle hello_test   - команда для запуска через консоль без  передачи в  browser=opera
+        //gradle hello_test   - команда для запуска через консоль без  передачи name
         //вывод будет: Hello,default student!
     }
 }
