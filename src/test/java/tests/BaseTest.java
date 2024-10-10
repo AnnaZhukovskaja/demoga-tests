@@ -17,8 +17,9 @@ public class BaseTest {
     static void beforeAll(){
         //Configuration.browserSize = "1920x1080";
         Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.baseUrl = "https://demoqa.com";
-
+        Configuration.baseUrl = System.getProperty("baseUrl");
+        //Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.pageLoadStrategy = "eager";
         Configuration.browser = System.getProperty("browser","chrome");
         Configuration.remote = System.getProperty("remoteURL");
